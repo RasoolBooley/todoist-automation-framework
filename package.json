@@ -1,0 +1,15 @@
+{
+  "name": "lodgify-todoist-challenge",
+  "version": "1.0.0",
+  "description": "automation framework for the todoist webapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.13.3"
+  }
+}
