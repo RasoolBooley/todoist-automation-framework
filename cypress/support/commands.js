@@ -1,25 +1,23 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+Cypress.Commands.add('createProject', () => {
+    let authToken =  Cypress.env('authToken'); // add to read me later 
+    let projectId; 
+    const requestId = Cypress._.random(0, 1e6);
+
+    cy.request({
+        method: 'POST',
+        url: 'https://api.todoist.com/rest/v2/projects', 
+        headers: {
+          'Authorization': `Bearer ${authToken}`, 
+          'Content-Type': 'application/json',
+          'X-Request-Id': requestId.toString()
+        },
+        body: {
+          name: 'Quick Post test'
+        }
+      }).then((response) => {
+        expect(response.status).to.eq(200); 
+        projectId = response.body.id; 
+      });
+    });
