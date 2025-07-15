@@ -1,4 +1,4 @@
-
+///<reference types="Cypress" />
 
 Cypress.Commands.add('createProject', () => {
     const authToken =  Cypress.env('authToken'); // add to read me later 
@@ -112,3 +112,10 @@ Cypress.Commands.add('loginUser', () => {
           });
         });
       });
+
+      Cypress.Commands.add('loginWithUI', (userName, password) => {
+        cy.get('#username').type(userName);
+        cy.get('#password').type(password);
+        cy.get('#submit').click();
+      });
+
