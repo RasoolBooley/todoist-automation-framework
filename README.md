@@ -1,6 +1,3 @@
-# lodgify-todoist-challenge
-Automation framework for the todoist webapp
-
 Prerequisites
 Before you can run the Cypress tests, ensure that you have the following installed on your machine:
 
